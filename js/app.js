@@ -112,7 +112,7 @@ const names = [
       for (let i = 0; i < Buss.all.length; i++) {
         let print = document.createElement('li');
           printResult.appendChild(print);
-          print.textContent = `${(Buss.all[i].name).toUpperCase()} had ${Buss.all[i].votes} Votes and was seen ${Buss.all[i].views} Times.`;
+          print.textContent = `${(Buss.all[i].name)} had ${Buss.all[i].votes} Votes and was seen ${Buss.all[i].views} Times.`;
            }
            document.getElementById('button').disabled = true;
 
@@ -127,7 +127,7 @@ const names = [
     const allVeiws = [];
     const allNames = [];
 
-    var ctx = document.getElementById('my-chart').getContext('2d');
+    var ctx = document.getElementById('myChart').getContext('2d');
     for (let i = 0; i < Buss.all.length; i++) {
       allVotes.push(Buss.all[i].votes);
       allVeiws.push(Buss.all[i].views);
@@ -155,8 +155,5 @@ const names = [
 
         ]
       },
-
-      // Configuration options go here
-      options: {}
     });
   }
