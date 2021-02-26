@@ -45,7 +45,19 @@ const names = [
     Buss.all.push(this);
   }
 
-  Buss.all=[];
+Buss.all=[];
+
+  function retrieve()
+{
+  console.log(Buss.all);
+  if(localStorage.length >0)
+  {
+    Buss.all = JSON.parse(localStorage.getItem("votes"));
+    
+    render();
+  }
+  
+}
 
   function render() {
     let firstImgArr = Buss.all[randomNumber(0, Buss.all.length - 1)];
@@ -86,6 +98,7 @@ const names = [
   render();
 
   imagesSection.addEventListener('click', handleClick);
+  retrieve();
   
   function handleClick(event) {    
         if (event.target.id !== 'img-section') {
@@ -95,6 +108,8 @@ const names = [
                 maxReach++;
               }
             }
+            localStorage.setItem("votes",JSON.stringify(Buss.all));
+
             render();
           }
           if(maxReach==25 && document.getElementById("button").disabled == false) {
